@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display|Raleway:300&display=swap');
+
+body{
+	background-color: #eee;
+	font-family: "Major Mono Display", monospace;
+}
+main{
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
+.container{
+	width: 320px;
+	height: 480px;
+	background-color: #1d1d1d;
+	box-shadow: 0 1px 6px 0 rgba(32,32,32,0.5);
+	/*padding: 20px;*/
+	/*padding-top: 10px;*/
+	display: grid;
+	grid-template-areas:
+		"display display display display"
+		"display display display display"
+		"buttons buttons buttons buttons"
+		"buttons buttons buttons buttons"
+		"buttons buttons buttons buttons"
+		"buttons buttons buttons buttons";
+}
+.display{
+	display: grid;
+	/*grid-template-areas: 
+		"result result result result"
+		"input input input backspace";*/
+
+	grid-auto-rows: 50px 50px;
+	/*height: 100px;*/
+	background-color: #1d1d1d;
+	color: #fff;
+	/*background-color: #fff;*/
+	/*box-shadow: 0 1px 6px 0 rgba(255,255,255,0.5);*/
+	grid-area: display;
+	position: relative;
+}
+.display p{
+	position: absolute;
+	width: 100%;
+	right: 0;
+
+	/*display: flex;*/
+	/*flex-wrap: nowrap;*/
+	/*flex-direction: row-reverse;*/
+	
+	margin: 0;
+	padding: 5px;
+	text-align: right;
+	white-space: nowrap;
+	box-sizing: border-box;
+
+}
+.display #resultString{
+	/*grid-area: result;*/
+	top: 0;
+	/*font-size: 20px;*/
+	font-size: 2em;
+	cursor: pointer;
+
+}
+
+.display #inputString{
+	/*grid-area: input;*/
+	bottom: 0;
+	overflow-x: auto;
+	font-size: 2em;
+	box-sizing: border-box;
+  	height: 50px;
+}
+.display #inputString::-webkit-scrollbar
+{
+	height: 5px;
+	width: 0;
+}
+.display #inputString::-webkit-scrollbar-track{
+	background: rgba(0,0,0,0);
+}
+.display #inputString::-webkit-scrollbar-thumb{
+	background-color: #fff;
+	border-radius: 10px;
+}
+/*.display .backspace-button{
+	grid-area: backspace;
+	background-color: #1d1d1d;
+	color: #fff;
+	border: 0;
+	cursor: pointer;
+	font-size: 2em;
+}
+.display .backspace-button:hover{
+	filter: brightness(75%);
+}*/
+
+.buttons{
+	display: grid;
+	grid-area: buttons;
+	grid-template-areas:
+		"evaluate evaluate clear backspace"
+		"seven eight nine plus"
+		"four five six minus"
+		"one two three multi"
+		"zero zero comma divide";
+}
+.buttons button{
+	color: #fff;
+	border: 0;
+	cursor: pointer;
+	font-size: 2em;
+	padding: 0;
+	transition: 0.5s;
+
+	background-position: center;
+	/*transition: background 0.3s;*/
+}
+.buttons button:hover{
+	filter: brightness(75%);
+}
+.buttons button:active{
+	background-size: 100%;
+	transition: background 0s;
+}
+.buttons button:focus{
+	outline: none;
+}
+
+/*====RippleEffect====*/
+/*https://codepen.io/finnhvman/pen/jLXKJw*/
+
+/*.ripple {
+	background-color: #1d1d1d;
+	background-position: center;
+	transition: background 0.3s;
+}
+.ripple:hover {
+	background: #1d1d1d radial-gradient(circle, transparent 1%, #1d1d1d 1%) center/15000%;
+}
+.ripple:active {
+	background-color: #efefef;
+	background-size: 100%;
+	transition: background 0s;
+}*/
+/*========*/
+
+.clear-button{
+	grid-area: clear;
+	background-color: #BF360C;
+}
+.clear-button:hover {
+	background: #BF360C radial-gradient(circle, transparent 1%, #BF360C 1%) center/15000%;
+}
+.clear-button:active {
+	background-color: #f3693f;
+}
+
+.backspace-button{
+	grid-area: backspace;
+	background-color: #BF360C;	
+}
+.backspace-button:hover {
+	background: #BF360C radial-gradient(circle, transparent 1%, #BF360C 1%) center/15000%;
+}
+.backspace-button:active {
+	background-color: #f3693f;
+}
+
+.evaluate-button {
+	grid-area: evaluate;
+	background-color: #FF9100;
+}
+.evaluate-button:hover {
+	background: #FF9100 radial-gradient(circle, transparent 1%, #FF9100 1%) center/15000%;
+}
+.evaluate-button:active {
+	background-color: #ffbd66;
+}
+
+.number-button {
+	background-color: #1d1d1d;
+}
+.number-button:hover {
+	background: #1d1d1d radial-gradient(circle, transparent 1%, #1d1d1d 1%) center/15000%;
+}
+.number-button:active {
+	background-color: #efefef;
+}
+
+#seven{
+	grid-area: seven;
+}
+#eight{
+	grid-area: eight;
+}
+#nine{
+	grid-area: nine;
+}
+#four{
+	grid-area: four;
+}
+#five{
+	grid-area: five;
+}
+#six{
+	grid-area: six;
+}
+#one{
+	grid-area: one;
+}
+#two{
+	grid-area: two;
+}
+#three{
+	grid-area: three;
+}
+#zero{
+	grid-area: zero;
+}
+
+.operator-button{
+	background-color: #4CAF50;
+}
+.operator-button:hover {
+	background: #4CAF50 radial-gradient(circle, transparent 1%, #4CAF50 1%) center/15000%;
+}
+.operator-button:active {
+	background-color: #71c174;
+}
+
+#plus{
+	grid-area: plus;
+}
+#minus{
+	grid-area: minus;
+}
+#multiply{
+	grid-area: multi;
+}
+#divide{
+	grid-area: divide;
+}
+
+.comma-button{
+	grid-area: comma;
+	background-color: #1d1d1d;
+}
+.comma-button:hover {
+	background: #1d1d1d radial-gradient(circle, transparent 1%, #1d1d1d 1%) center/15000%;
+}
+.comma-button:active {
+	background-color: #efefef;
+}
+
+#footer{
+	width: 320px;
+	padding: 10px;
+	box-sizing: border-box;
+	background-color: #cccccc;
+	font-family: "Raleway", sans-serif;
+	text-align: center;
+}
